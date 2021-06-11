@@ -4,6 +4,90 @@
 @import 'global';
 
 
+.header {
+    &__top {
+        padding-top: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__inner {
+        width: 800px;
+        display: flex;
+        align-items: center;
+        margin-right: auto;
+    }
+    &__logo {
+        margin-right: auto;
+    }
+}
+
+.menu {
+    &__list {
+        display: flex;
+    }
+
+    &__item {
+        margin-right: 35px;
+    &:last-child {
+        margin-right: 0;
+        }
+    }
+
+    &__link {
+        color: $title-color;
+        outline: transparent;
+        border-bottom: 1px solid transparent;
+        padding-bottom: 3px;
+        transition: border-color 0.3s, padding-bottom 0.5s;
+        @extend %quicksand-400;
+            &:hover {
+        @extend %quicksand-500;
+        border-bottom: 1px solid $accent-color;
+        color: $accent-color;
+        }
+    }
+    
+    &__link--active {
+        color: $accent-color;
+        border-bottom: 1px solid $accent-color;
+    }
+}
+
+.user-nav {
+    display: flex;
+    &__link {
+        position: relative;
+        margin-right: 25px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &__num {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: $accent-color;
+        color: #fff;
+        top: -9px;
+        right: -14px;
+        font-size: 12px;
+        text-align: center;
+        line-height: 1.6;
+    }
+
+}
+
+
+
+
+
+
+
+
+
 
 
 
