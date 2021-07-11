@@ -4,6 +4,335 @@
 @import 'global';
 
 
+.header {
+    &__top {
+        padding-top: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 45px;
+
+    }
+    &__inner {
+        width: 800px;
+        display: flex;
+        align-items: center;
+        margin-right: auto;
+    }
+    &__logo {
+        margin-right: auto;
+    }
+}
+
+.menu {
+    &__list {
+        display: flex;
+    }
+
+    &__item {
+        margin-right: 35px;
+    &:last-child {
+        margin-right: 0;
+        }
+    }
+
+    &__link {
+        color: $title-color;
+        outline: transparent;
+        border-bottom: 1px solid transparent;
+        padding-bottom: 3px;
+        transition: border-color 0.3s, padding-bottom 0.5s;
+        @extend %quicksand-400;
+            &:hover {
+        @extend %quicksand-500;
+        border-bottom: 1px solid $accent-color;
+        color: $accent-color;
+        }
+    }
+    
+    &__link--active {
+        color: $accent-color;
+        border-bottom: 1px solid $accent-color;
+    }
+}
+
+.user-nav {
+    display: flex;
+    &__link {
+        position: relative;
+        margin-right: 25px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &__num {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: $accent-color;
+        color: #fff;
+        top: -9px;
+        right: -14px;
+        font-size: 12px;
+        text-align: center;
+        line-height: 1.6;
+    }
+
+}
+
+
+
+.produts {
+    padding: 105px 0 120px;
+    text-align: center;
+
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 45px 30px;
+    }
+
+    &__link {
+        text-transform: uppercase;
+        display: inline-block;
+        color: $title-color;
+        border: 1px solid $accent-color;
+        padding: 15px 24px;
+        letter-spacing: 1.5px;
+    }
+
+    .title {
+        @extend %roboto-700;
+        font-size: 48px;
+        color: $title-color;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .text {
+        @extend %quicksand-500;
+        text-align: center;
+        max-width: 570px;
+        margin: 0 auto;
+        margin-bottom: 60px;
+    }
+}
+
+.produts-item {
+    max-width: 370px;
+
+    &__img-box {
+        position: relative;
+        height: 370px;
+        overflow: hidden;
+        margin-bottom: 25px;
+    }
+    
+    &__link-box {
+        position: absolute;
+        transition: 0.3s transform; 
+        display: flex;
+        left: 0;
+        right: 0;
+        bottom: 50px;
+        background-color: #fff;
+        width: 220px;
+        height: 50px;
+        margin: 0 auto;
+        border-radius: 22px;
+        box-shadow: 0px 5px 30px 0px rgba(152, 152, 152, 0.2);
+        align-items: center;
+        justify-content: space-around;
+        transform: translateY(300%);
+    }
+
+    &__link--line::before,
+    &__link--line::after {
+        content: '';
+        position: absolute;
+        background-color: #fff;
+        width: 1px;
+        height: 30px;
+        background-color: #ececec;
+        top: 10px;
+    }
+
+    &__link--line::before {
+        left: 70px;
+    }
+
+    &__link--line::after {
+        right: 70px;
+    }
+
+    &__link {
+        display: inherit;
+        path {
+            transition: 0.3s fill;
+        }
+    }
+
+    &__link:hover {
+        path {
+        fill: $accent-color;
+        }
+    }
+    &__images{
+        object-fit: cover;
+    }
+
+    &:hover {
+        .produts-item__link-box {
+            transform: translateY(0);
+        }
+    }
+
+    &__title {
+        color: $title-color;
+        padding: 15px 0 20px;
+    }
+
+    &__price {
+        display: flex;
+        display: inline;
+        @extend %roboto-400;
+    }
+
+    &__price-new {
+        padding: 0 12px;
+        color: $title-color;
+    }
+
+    &__price-old {
+        padding: 0 12px;
+        color: #ccccce;
+        text-decoration: line-through;
+    }
+}
+
+.top {
+    margin-bottom: 100px;
+}
+
+.top__conteiner {
+    max-width: 1700px;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center; 
+    padding: 130px 0 135px;
+}    
+
+.title__top {
+    @extend %roboto-400;
+}
+
+.breadcrumbs {
+    display: flex;
+    justify-content: center;
+    &__list {
+        display: flex;
+        padding-left: 25px;
+        position: relative;
+    }
+        &__list::before {
+            content: "";
+            position: absolute;
+            background-image: url('../images/icon/home-icon.svg');
+            width: 16px;
+            height: 16px;
+            left: 0;
+    }
+
+    &__item {
+        color: #727272;
+        position: relative;
+        padding-right: 40px;
+        &::after {
+            content: "";
+            position: absolute;
+            background-image: url('../images/icon/angle-right.svg');
+            width: 9px;
+            height: 10px;
+            right: 15px;
+            top: 6px;
+        }
+        &:last-child {
+            color: $accent-color;
+            padding-right: 0;
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+    &__link {
+        color: inherit;
+    }
+}
+
+
+.form {
+    max-width: 570px;
+    margin: 0 auto 115px;
+}
+
+.modal-form__links {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.modal-form__link { 
+        margin-right: 60px;
+        text-transform: uppercase;
+        font-size: 22px;
+        @extend %roboto-400;
+        color: #909090;
+    &:last-child {
+        margin-right: 0;
+    }
+}
+.modal-form__link--active {
+        color: $accent-color;
+    }
+
+.form {
+    display: block;
+}
+
+.modal-form__label {
+    display: block;
+    margin-bottom: 30px;
+}
+
+    .modal-form__input {
+        display: block;
+        width: 100%;
+        border: none;
+        background-color: #f6f6f6;
+        height: 60px;
+        padding: 0 15px;
+        margin-top: 5px;
+    }
+
+.modal-form__btn {
+    display: block;
+    width: 100%;
+    background-color: #292929;
+    text-transform: uppercase;
+    text-align: center;
+    @extend %roboto-400;
+    color: #fff;
+    padding: 18px 14px;
+    border: none;
+    margin-bottom: 15px;
+}
+
+.modal-form__text {
+    margin-bottom: 20px;
+}
 
 
 
