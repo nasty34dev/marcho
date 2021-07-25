@@ -1,12 +1,12 @@
 const { src, dest, watch, parallel, series } = require('gulp');
 
-const scss             = require('gulp-sass');
-const concat           = require('gulp-concat');
-const autoprefixer     = require('gulp-autoprefixer');
-const uglify           = require('gulp-uglify');
-const imagemin         = require('gulp-imagemin');
-const del              = require('del');
-const browserSync      = require('browser-sync').create();
+const scss = require('gulp-sass');
+const concat = require('gulp-concat');
+const autoprefixer = require('gulp-autoprefixer');
+const uglify = require('gulp-uglify');
+const imagemin = require('gulp-imagemin');
+const del = require('del');
+const browserSync = require('browser-sync').create();
 
 
 
@@ -20,7 +20,7 @@ function browsersync() {
 
 function styles() {
     return src('app/scss/style.scss')
-        .pipe(scss({ outputStyle: 'compressed'}))
+        .pipe(scss({ outputStyle: 'compressed' }))
         .pipe(concat('style.min.css'))
         .pipe(dest('app/css'))
         .pipe(autoprefixer({
@@ -35,6 +35,7 @@ function styles() {
 function scripts() {
     return src([
         'node_modules/jquery/dist/jquery.js',
+        'node_modules/ion-rangeslider/js/ion.rangeSlider.js',
         'app/js/main.js'
     ])
         .pipe(concat('main.min.js'))
@@ -64,8 +65,8 @@ function build() {
         'app/**/*.html',
         'app/css/style.min.css',
         'app/js/main.min.js'
-    ], {base: 'app'})
-    .pipe(dest('dist'))
+    ], { base: 'app' })
+        .pipe(dest('dist'))
 }
 
 function cleanDist() {
@@ -79,14 +80,14 @@ function watching() {
 }
 
 
-exports.styles      = styles;
-exports.scripts     = scripts;
+exports.styles = styles;
+exports.scripts = scripts;
 exports.browsersync = browsersync;
-exports.watching    = watching;
-exports.images      = images;
-exports.cleanDist   = cleanDist;
-exports.build       = build;
-exports.build       = series(cleanDist, images, build);
+exports.watching = watching;
+exports.images = images;
+exports.cleanDist = cleanDist;
+exports.build = build;
+exports.build = series(cleanDist, images, build);
 
 
-exports.default     = parallel(styles, scripts, browsersync, watching);
+exports.default = parallel(styles, scripts, browsersync, watching);
