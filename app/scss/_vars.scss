@@ -23,3 +23,11 @@ $default-color : #8d8d8d;
     font-family: 'Roboto-Bold', sans-serif;
     font-weight: 700;
 }
+
+%checkbox-hidden {
+    width: 1px;
+    height: 1px;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+    position: absolute;
+}

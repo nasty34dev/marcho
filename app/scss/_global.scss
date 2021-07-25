@@ -11,9 +11,14 @@ body {
     padding: 0 15px;
 }
 
+.header--404-page {
+    background-color: #f6f6f6;
+    padding-bottom: 25px;
+}
+
 .title {
     text-align: center;
-    @extend %roboto-700;
+    @extend %roboto-400;
     font-size: 48px;
     line-height: 1.4;
     margin-bottom: 10px;
